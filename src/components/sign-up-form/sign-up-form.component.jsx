@@ -4,7 +4,7 @@ import {
   createUserDocmentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
-import "./sign-up.style.scss";
+import "./sign-up-form.style.scss";
 import Button from "../button/button.component";
 
 const defaultFormFields = {
@@ -90,7 +90,7 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <Button children="Sign Up" buttonType="google" type="sumbit" />
+        <Button children="Sign Up" type="sumbit" />
       </form>
     </div>
   );
