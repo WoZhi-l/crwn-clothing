@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
+//购物车添加一件商品
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
@@ -16,6 +17,7 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
+//购物车减少一件商品
 const removeCartItem = (cartItems, cartItemToRemove) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === cartItemToRemove.id
@@ -32,10 +34,12 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 };
 
+//购物车清除一种商品
 const clearCartItem = (cartItems, cartItemToClear) => {
   return cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 };
 
+//初始化购物车context
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => null,
@@ -47,6 +51,7 @@ export const CartContext = createContext({
   cartTotal: 0,
 });
 
+//购物车数据提供者
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
